@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2en-zn-ihR">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Table View Controller-->
+        <scene sceneID="1yc-1d-0nG">
+            <objects>
+                <viewController storyboardIdentifier="TableViewController" id="2en-zn-ihR" customClass="TableViewController" customModule="AwesomeHT6Tabble" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="V1h-5b-RQc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ArV-DL-GCh">
+                                <rect key="frame" x="0.0" y="100" width="375" height="547"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="2en-zn-ihR" id="o71-x0-LRk"/>
+                                    <outlet property="delegate" destination="2en-zn-ihR" id="4U2-zx-Zpb"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Нотатки" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="un7-r1-mzC">
+                                <rect key="frame" x="20" y="40" width="103" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yhi-iv-TMT">
+                                <rect key="frame" x="325" y="40" width="30" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Add">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="addButton:" destination="2en-zn-ihR" eventType="touchUpInside" id="Joo-IZ-IoR"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ArV-DL-GCh" firstAttribute="leading" secondItem="f32-Le-zu9" secondAttribute="leading" id="93O-v9-KJG"/>
+                            <constraint firstItem="f32-Le-zu9" firstAttribute="trailing" secondItem="Yhi-iv-TMT" secondAttribute="trailing" constant="20" id="Crt-jq-pgL"/>
+                            <constraint firstItem="f32-Le-zu9" firstAttribute="trailing" secondItem="ArV-DL-GCh" secondAttribute="trailing" id="IX4-aK-O5X"/>
+                            <constraint firstItem="Yhi-iv-TMT" firstAttribute="bottom" secondItem="un7-r1-mzC" secondAttribute="bottom" id="YrY-tu-fTh"/>
+                            <constraint firstItem="un7-r1-mzC" firstAttribute="leading" secondItem="f32-Le-zu9" secondAttribute="leading" constant="20" id="dJJ-9F-ldr"/>
+                            <constraint firstItem="ArV-DL-GCh" firstAttribute="top" secondItem="un7-r1-mzC" secondAttribute="bottom" constant="30" id="kxN-jK-1Sf"/>
+                            <constraint firstItem="un7-r1-mzC" firstAttribute="top" secondItem="f32-Le-zu9" secondAttribute="top" constant="20" id="leJ-Gu-PIl"/>
+                            <constraint firstItem="f32-Le-zu9" firstAttribute="bottom" secondItem="ArV-DL-GCh" secondAttribute="bottom" constant="20" id="xre-aL-osU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="f32-Le-zu9"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="ArV-DL-GCh" id="H13-5b-blD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="43V-Cj-PHo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-262" y="90"/>
+        </scene>
+    </scenes>
+</document>

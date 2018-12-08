@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OrdinaryTableViewCell" id="KGk-i7-Jjw" customClass="OrdinaryTableViewCell" customModule="AwesomeHT6Tabble" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="372" height="102"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="372" height="101.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dpp-UY-ExT" userLabel="Date Label">
+                        <rect key="frame" x="16" y="65" width="34.5" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j6d-1b-oEj">
+                        <rect key="frame" x="60.5" y="65" width="88" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" clearsOnBeginEditing="YES" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fnm-hk-qnW" userLabel="Title">
+                        <rect key="frame" x="16" y="21" width="335" height="34"/>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                        <textInputTraits key="textInputTraits"/>
+                        <connections>
+                            <action selector="titleVhanged:" destination="KGk-i7-Jjw" eventType="editingChanged" id="i3B-Kh-dfs"/>
+                        </connections>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Fnm-hk-qnW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="K5x-te-6e3"/>
+                    <constraint firstItem="Fnm-hk-qnW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="P52-mm-hCZ"/>
+                    <constraint firstItem="dpp-UY-ExT" firstAttribute="leading" secondItem="Fnm-hk-qnW" secondAttribute="leading" id="QDU-Ns-gHN"/>
+                    <constraint firstItem="j6d-1b-oEj" firstAttribute="height" secondItem="dpp-UY-ExT" secondAttribute="height" id="UBX-s6-bt7"/>
+                    <constraint firstItem="j6d-1b-oEj" firstAttribute="centerY" secondItem="dpp-UY-ExT" secondAttribute="centerY" id="WNu-Pf-O9H"/>
+                    <constraint firstItem="j6d-1b-oEj" firstAttribute="leading" secondItem="dpp-UY-ExT" secondAttribute="trailing" constant="10" id="aUq-2I-CgH"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Fnm-hk-qnW" secondAttribute="trailing" constant="5" id="h4c-4M-hAd"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="dpp-UY-ExT" secondAttribute="bottom" constant="5" id="kVV-zS-bFf"/>
+                    <constraint firstItem="dpp-UY-ExT" firstAttribute="top" secondItem="Fnm-hk-qnW" secondAttribute="bottom" constant="10" id="qdI-lf-PdO"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="dateLabel" destination="dpp-UY-ExT" id="fTi-M2-fEC"/>
+                <outlet property="descriptionLabel" destination="j6d-1b-oEj" id="Vcf-kz-At1"/>
+                <outlet property="titleLabel" destination="Fnm-hk-qnW" id="erC-Jg-V9V"/>
+            </connections>
+            <point key="canvasLocation" x="-29" y="111"/>
+        </tableViewCell>
+    </objects>
+</document>
