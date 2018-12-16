@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		844F37AA21C1A26A002174D3 /* AddScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F37A921C1A26A002174D3 /* AddScreen.swift */; };
 		846A7DE321B8E89B00A0E94B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846A7DE221B8E89B00A0E94B /* AppDelegate.swift */; };
 		846A7DE521B8E89B00A0E94B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846A7DE421B8E89B00A0E94B /* ViewController.swift */; };
 		846A7DE821B8E89B00A0E94B /* TableView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846A7DE621B8E89B00A0E94B /* TableView.storyboard */; };
 		846A7DEA21B8E89D00A0E94B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 846A7DE921B8E89D00A0E94B /* Assets.xcassets */; };
 		846A7DED21B8E89D00A0E94B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846A7DEB21B8E89D00A0E94B /* LaunchScreen.storyboard */; };
+		84B4A24521C29DAF009FE607 /* EditScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B4A24421C29DAF009FE607 /* EditScreen.swift */; };
 		84B59C5621BA4C4400543DC2 /* WithLockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B59C5421BA4C4400543DC2 /* WithLockTableViewCell.swift */; };
 		84B59C5721BA4C4400543DC2 /* WithLockTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B59C5521BA4C4400543DC2 /* WithLockTableViewCell.xib */; };
 		84B59C5A21BA4C5E00543DC2 /* OrdinaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B59C5821BA4C5E00543DC2 /* OrdinaryTableViewCell.swift */; };
@@ -25,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		844F37A921C1A26A002174D3 /* AddScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScreen.swift; sourceTree = "<group>"; };
 		846A7DDF21B8E89B00A0E94B /* AwesomeHT6Tabble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AwesomeHT6Tabble.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		846A7DE221B8E89B00A0E94B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		846A7DE421B8E89B00A0E94B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -32,6 +35,7 @@
 		846A7DE921B8E89D00A0E94B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		846A7DEC21B8E89D00A0E94B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		846A7DEE21B8E89D00A0E94B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84B4A24421C29DAF009FE607 /* EditScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditScreen.swift; sourceTree = "<group>"; };
 		84B59C5421BA4C4400543DC2 /* WithLockTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithLockTableViewCell.swift; sourceTree = "<group>"; };
 		84B59C5521BA4C4400543DC2 /* WithLockTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WithLockTableViewCell.xib; sourceTree = "<group>"; };
 		84B59C5821BA4C5E00543DC2 /* OrdinaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdinaryTableViewCell.swift; sourceTree = "<group>"; };
@@ -89,7 +93,9 @@
 			isa = PBXGroup;
 			children = (
 				846A7DE621B8E89B00A0E94B /* TableView.storyboard */,
+				844F37A921C1A26A002174D3 /* AddScreen.swift */,
 				84BE39C821B942AC00168E13 /* TableViewController.swift */,
+				84B4A24421C29DAF009FE607 /* EditScreen.swift */,
 				84B59C5321BA4C0300543DC2 /* TabbleCells */,
 			);
 			path = TableView;
@@ -204,11 +210,13 @@
 				84EFA7FC21BD3A89000F9772 /* CollectionViewController.swift in Sources */,
 				846A7DE521B8E89B00A0E94B /* ViewController.swift in Sources */,
 				84EFA7FF21BD3EE8000F9772 /* AwesomeCollectionViewCell.swift in Sources */,
+				84B4A24521C29DAF009FE607 /* EditScreen.swift in Sources */,
 				84B59C5A21BA4C5E00543DC2 /* OrdinaryTableViewCell.swift in Sources */,
 				84EFA80421BD56D3000F9772 /* SectionHeaderCollectionReusableView.swift in Sources */,
 				84BE39C921B942AC00168E13 /* TableViewController.swift in Sources */,
 				84B59C5621BA4C4400543DC2 /* WithLockTableViewCell.swift in Sources */,
 				846A7DE321B8E89B00A0E94B /* AppDelegate.swift in Sources */,
+				844F37AA21C1A26A002174D3 /* AddScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

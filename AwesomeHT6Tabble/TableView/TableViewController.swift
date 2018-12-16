@@ -15,51 +15,23 @@ class TableViewController: UIViewController {
     struct Note {
         var title: String
         var description: String
+        var date: String
+        var complited: Bool
         
-        init(_ title: String, _ description: String) {
+        init(_ title: String, _ description: String, _ date: String, _ complited: Bool) {
             self.title = title
             self.description = description
+            self.date = date
+            self.complited = complited
         }
     }
-    var sectionOne: [Note] = [Note("Dictionary", "intent - намір"),
-                              Note("582 Заправка", "Some text"),
-                              Note("Some title three", "Some text"),
-                              Note("Some title four", "Some text"),
-                              Note("Some title five", "Some text"),
-                              Note("some title six", "Some text"),
-                              Note("Some title seven", "Some text"),
-                              ]
-    var sectionTwo: [Note] = [Note("Section two", "test")]
-    let sectionsNames: [String] = ["Section one", "Section two"]
-    let unlock: String = "відімкнено"
-    var date: String = ""
     
-    //it is a tap on button and adding a cell using alert
-    @IBAction func addButton(_ sender: UIButton) {
-        
-        let alert = UIAlertController(title: "Add row", message: nil, preferredStyle: .alert)
-        alert.addTextField(configurationHandler: {(titleFied) in
-            titleFied.placeholder = "Some title" })
-        alert.addTextField(configurationHandler: {(decriptionField) in
-            decriptionField.placeholder = "Some title" })
-        let action = UIAlertAction(title: "Add", style: .default, handler: { (_) in
-            guard let title = alert.textFields?.first?.text else { return }
-            guard let description = alert.textFields?.last?.text else { return }
-            self.add(title, description)
-        })
-        
-        alert.addAction(action)
-        present(alert, animated: true)
-        tableView.reloadData()
-    }
-    
-    // its a cool way to add a cell
-    func add(_ title: String, _ description: String) {
-        let index = 0
-        sectionOne.insert(TableViewController.Note(title, description), at: index)
-        let indexPath = IndexPath(row: index, section: 0)
-        tableView.insertRows(at: [indexPath], with: .left)
-    }
+    private var standartDate: String = ""
+    private var sectionOne: [Note] = []
+    private var sectionTwo: [Note] = []
+    private let sectionsNames: [String] = ["Count", "Complited"]
+    private let unlock: String = "відімкнено"
+    private var lastModified: String = ""
     
     //deleting cell
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -77,17 +49,26 @@ class TableViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let tmpForDate = Date()
-        let formatter = DateFormatter()
         let ordinaryCell = UINib(nibName: "OrdinaryTableViewCell", bundle: nil)
         let withLockCell = UINib(nibName: "WithLockTableViewCell", bundle: nil)
-        
         tableView.register(ordinaryCell, forCellReuseIdentifier: OrdinaryTableViewCell.reuseIdentifier)
         tableView.register(withLockCell, forCellReuseIdentifier: WithLockTableViewCell.reuseIdentifier)
-        formatter.dateFormat = "dd.MM.yyyy"
-        self.date = formatter.string(from: tmpForDate)
         
+        let tmpForDate = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.MM.yyyy"
+        self.standartDate = formatter.string(from: tmpForDate)
+        self.sectionOne = [Note("Dictionary", "intent - намір", standartDate, false),
+                            Note("582 Заправка", "Some text", standartDate, false),
+                            Note("Some title three", "Some text", standartDate, false),
+                            Note("Some title four", "Some text", standartDate, false),
+                            Note("Some title five", "Some text", standartDate, false),
+                            Note("some title six", "Some text", standartDate, false),
+                            Note("Some title seven", "Some text", standartDate, false),
+                                  ]
+        self.sectionTwo = [Note("Section two", "test", standartDate, true)]
     }
+    
 }
 
 //MARK: - UITableViewDataSource ad UITableViewDelegat extention to class
@@ -122,55 +103,22 @@ extension TableViewController: UITableViewDataSource, UITableViewDelegate {
             switch indexPath.row {
             case 1, 3:
                 let cell = tableView.dequeueReusableCell(withIdentifier: WithLockTableViewCell.reuseIdentifier, for: indexPath) as? WithLockTableViewCell
-                cell?.dateLabel.text = date
+                cell?.dateLabel.text = sectionOne[indexPath.row].date //remowe this!
                 cell?.descriptionLabel.text = unlock
                 cell?.titleLabel.text = sectionOne[indexPath.row].title
-                cell?.textChanged = {[weak self] (isChanged) in
-                    guard let self = self else { return }
-                    guard let title = isChanged else { return }
-                    
-                    switch indexPath.section {
-                    case 0:
-                        self.sectionOne[indexPath.row].title = title
-                    default:
-                        self.sectionTwo[indexPath.row].title = title
-                    }
-                }
                 return checkIfNil(cell, indexPath: indexPath)
             default:
                 let cell = tableView.dequeueReusableCell(withIdentifier: OrdinaryTableViewCell.reuseIdentifier, for: indexPath) as? OrdinaryTableViewCell
-                cell?.dateLabel.text = date
+                cell?.dateLabel.text = sectionOne[indexPath.row].date
                 cell?.descriptionLabel.text = sectionOne[indexPath.row].description
                 cell?.titleLabel.text = sectionOne[indexPath.row].title
-                cell?.textChanged = {[weak self] (isChanged) in
-                    guard let self = self else { return }
-                    guard let title = isChanged else { return }
-                    
-                    switch indexPath.section {
-                    case 0:
-                        self.sectionOne[indexPath.row].title = title
-                    default:
-                        self.sectionTwo[indexPath.row].title = title
-                    }
-                }
                 return checkIfNil(cell, indexPath: indexPath)
             }
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: OrdinaryTableViewCell.reuseIdentifier, for: indexPath) as? OrdinaryTableViewCell
-            cell?.dateLabel.text = date
+            cell?.dateLabel.text = sectionTwo[indexPath.row].date
             cell?.descriptionLabel.text = sectionTwo[indexPath.row].description
             cell?.titleLabel.text = sectionTwo[indexPath.row].title
-            cell?.textChanged = {[weak self] (isChanged) in
-                guard let self = self else { return }
-                guard let title = isChanged else { return }
-                
-                switch indexPath.section {
-                case 0:
-                    self.sectionOne[indexPath.row].title = title
-                default:
-                    self.sectionTwo[indexPath.row].title = title
-                }
-            }
             return checkIfNil(cell, indexPath: indexPath)
         }
     }
@@ -185,21 +133,72 @@ extension TableViewController: UITableViewDataSource, UITableViewDelegate {
         return sectionsNames[section]
     }
     
-    //moving cell between sections
+    //MARK: - editing
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "TableView", bundle: nil)
+        let editController = storyboard.instantiateViewController(withIdentifier: "EditScreen") as! EditScreen
+        editController.title = "Edit Note"
         switch indexPath.section {
         case 0:
-            let tempNote: Note = sectionOne[indexPath.row]
-            sectionOne.remove(at: indexPath.row)
-            sectionTwo.insert(tempNote, at: 0)
-            tableView.moveRow(at: indexPath, to: IndexPath(row: 0, section: 1))
+            editController.note = sectionOne[indexPath.row]
         default:
-            let tempNote: Note = sectionOne[indexPath.row]
-            sectionTwo.remove(at: indexPath.row)
-            sectionOne.insert(tempNote, at: 0)
-            tableView.moveRow(at: indexPath, to: IndexPath(row: 0, section: 0))
+            editController.note = sectionTwo[indexPath.row]
         }
-        tableView.reloadData()
+        editController.lastModified = lastModified
+        navigationController?.pushViewController(editController, animated: true)
+        
+        //pushing note into rignt section
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.MM.yyyy"
+        editController.editedNote = { (note) in
+            guard let noteToPush = note else { return }
+            self.lastModified = noteToPush.title
+            switch indexPath.section{
+            case 0:
+                if noteToPush.complited {
+                    self.sectionOne.remove(at: indexPath.row)
+                    self.sectionTwo.append(noteToPush)
+                    self.sectionTwo.sort(by: {formatter.date(from: $0.date)! < formatter.date(from: $1.date)!})
+                } else {
+                    self.sectionOne[indexPath.row] = noteToPush
+                    self.sectionOne.sort(by: {formatter.date(from: $0.date)! < formatter.date(from: $1.date)!})
+                }
+            default:
+                if !noteToPush.complited {
+                    self.sectionTwo.remove(at: indexPath.row)
+                    self.sectionOne.append(noteToPush)
+                    self.sectionOne.sort(by: {formatter.date(from: $0.date)! < formatter.date(from: $1.date)!})
+                } else {
+                    self.sectionTwo[indexPath.row] = noteToPush
+                    self.sectionTwo.sort(by: {formatter.date(from: $0.date)! < formatter.date(from: $1.date)!})
+                }
+            }
+            self.tableView.reloadData()
+        }
     }
+    
+    //MARK: - calling addController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addNote" {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd.MM.yyyy"
+            let addController = segue.destination as! AddScreen
+            addController.title = "Add Note"
+            addController.stadartDate = standartDate
+            addController.newNote = { (note) in
+                guard let neadToAddNote = note else { return }
+                switch neadToAddNote.complited {
+                case true:
+                    self.sectionTwo.append(neadToAddNote)
+                    self.sectionTwo.sort(by: {formatter.date(from: $0.date)! < formatter.date(from: $1.date)!})
+                default:
+                    self.sectionOne.append(neadToAddNote)
+                    self.sectionOne.sort(by: {formatter.date(from: $0.date)! < formatter.date(from: $1.date)!})
+                }
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
 }
 

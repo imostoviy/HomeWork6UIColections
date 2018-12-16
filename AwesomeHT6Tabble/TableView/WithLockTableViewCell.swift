@@ -15,13 +15,6 @@ class WithLockTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    //handling of changing text
-    var textChanged: ((String?) -> ())?
-    
-    @IBAction func titleChanged(_ sender: UITextField) {
-        textChanged? (titleLabel.text)
-    }
-    
     static let reuseIdentifier: String = "WithLockTabbleViewCell"
     
 }
