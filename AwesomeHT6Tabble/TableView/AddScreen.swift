@@ -8,10 +8,7 @@
 
 import UIKit
 
-protocol MyProtocol {}
-
 class AddScreen: UIViewController {
-
     @IBOutlet weak var isCompliteSwitch: UISwitch!
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var titleTextField: UITextField!

@@ -17,14 +17,12 @@ class EditScreen: UIViewController {
     @IBOutlet weak var lastModifiedLabel: UILabel!
     @IBOutlet weak var editButton: UIButton!
     
-    
     private let datePicker = UIDatePicker()
     var note: TableViewController.Note? = nil
     var lastModified: String? = nil
     private let edit: String = "Edit"
     private let save: String = "Save"
     var editedNote: ((TableViewController.Note?) -> ())?
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,7 +75,6 @@ class EditScreen: UIViewController {
             isCompliteSwitch.isEnabled = false
         }
     }
-    
     
     //saving data
     @IBAction func saveButton(_ sender: UIButton) {

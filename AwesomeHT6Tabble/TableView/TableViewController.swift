@@ -9,7 +9,6 @@
 import UIKit
 
 class TableViewController: UIViewController {
-
     @IBOutlet weak var tableView: UITableView!
     
     struct Note {
@@ -25,7 +24,6 @@ class TableViewController: UIViewController {
             self.complited = complited
         }
     }
-    
     private var standartDate: String = ""
     private var sectionOne: [Note] = []
     private var sectionTwo: [Note] = []
@@ -68,7 +66,6 @@ class TableViewController: UIViewController {
                                   ]
         self.sectionTwo = [Note("Section two", "test", standartDate, true)]
     }
-    
 }
 
 //MARK: - UITableViewDataSource ad UITableViewDelegat extention to class
@@ -199,6 +196,5 @@ extension TableViewController: UITableViewDataSource, UITableViewDelegate {
             }
         }
     }
-    
 }
 
